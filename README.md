@@ -1,2 +1,2 @@
 # shiro-corl-2021
-Soft Hierarchical Reinforcement Learning for Robotics
+Code associated with "Soft Hierarchical Reinforcement Learning for Robotics", a work submitted to CoRL 2021.
