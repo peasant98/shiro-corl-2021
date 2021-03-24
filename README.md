@@ -1,6 +1,10 @@
 # shiro-corl-2021
 Code associated with "Soft Hierarchical Reinforcement Learning for Robotics", a work to be submitted to CoRL 2021.
 
+## Envs
+
+
+![](imgs/panda_env.png)
 ## Installation 
 
 There are two environments that you'll need to install: the Franka Panda robot
@@ -30,6 +34,8 @@ Then, to install this package (`shiro`):
 cd shiro-corl-2021
 pip3 install .
 ```
+
+
 ## Running Experiments
 
 ## Contributing
