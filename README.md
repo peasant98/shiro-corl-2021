@@ -24,6 +24,12 @@ cd bullet3
 pip3 install .
 ```
 
+Then, to install this package (`shiro`):
+
+```sh
+cd shiro-corl-2021
+pip3 install .
+```
 ## Running Experiments
 
 ## Contributing
