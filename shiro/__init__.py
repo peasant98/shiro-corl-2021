@@ -22,6 +22,13 @@ register(
         max_episode_steps=1000
 )
 
+
+register(
+        id='shiroMinitaurEnvBase-v0',
+        entry_point='shiro.envs:ShiroMinitaurGymEnv',
+        max_episode_steps=1000
+)
+
 # --------------------------- #
 def getList():
     btenvs = ['- ' + spec.id for spec in gym.envs.registry.all() if spec.id.find('iCub')>=0]

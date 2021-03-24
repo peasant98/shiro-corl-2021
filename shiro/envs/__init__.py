@@ -1,3 +1,4 @@
 from shiro.envs.panda.standard_panda_env import ShiroPandaPushGymGoalEnv
 
 from shiro.envs.minitaur.standard_minitaur_env import ShiroMinitaurBallGymEnv
+from shiro.envs.minitaur.base_minitaur_env import ShiroMinitaurGymEnv
