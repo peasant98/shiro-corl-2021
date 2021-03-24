@@ -3,7 +3,7 @@ Code associated with "Soft Hierarchical Reinforcement Learning for Robotics", a 
 
 ## Envs
 
-### The Panda Environment.
+### The Panda Environment
 
 ![](imgs/panda_env.png)
 
