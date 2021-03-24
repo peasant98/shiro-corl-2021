@@ -6,7 +6,7 @@ from gym.envs.registration import register
 
 register(
         id='shiroPandaEnv-v0',
-        entry_point='shiro.envs:SHIROPandaPushGymGoalEnv',
+        entry_point='shiro.envs:ShiroPandaPushGymGoalEnv',
         max_episode_steps=1000,
         kwargs={'use_IK': 0,
                 'obj_pose_rnd_std': 0.05,

@@ -13,12 +13,14 @@ from pybullet_robot_envs.envs.panda_envs.panda_push_gym_goal_env import pandaPus
 from pybullet_robot_envs.envs.panda_envs.panda_reach_gym_env import pandaReachGymEnv
 import argparse
 
+from shiro.envs import ShiroPandaPushGymGoalEnv
+
 
 def main(cart_control, random_policy):
 
     use_IK = 1 if cart_control else 0
 
-    env = pandaPushGymGoalEnv(renders=True, use_IK=use_IK, obj_pose_rnd_std=0.0)
+    env = ShiroPandaPushGymGoalEnv(renders=True, use_IK=use_IK, obj_pose_rnd_std=0.0)
     env.reset()
 
     motorsIds = []

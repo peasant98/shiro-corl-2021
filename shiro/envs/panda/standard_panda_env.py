@@ -15,7 +15,7 @@ from pybullet_robot_envs.envs.world_envs.world_env import get_objects_list
 from pybullet_robot_envs.envs.utils import goal_distance, scale_gym_data
 
 
-class SHIROPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
+class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
     metadata = {'render.modes': ['human', 'rgb_array'],
                 'video.frames_per_second': 50}
 

@@ -5,12 +5,11 @@
 import math
 
 import tensorflow as tf
-import minitaur_basic_env
-
+from shiro.envs import ShiroMinitaurBallGymEnv
 
 def FollowBallManualPolicy():
   """An example of a minitaur following a ball."""
-  env = minitaur_basic_env.MinitaurBallGymEnv(render=True,
+  env = ShiroMinitaurBallGymEnv(render=True,
                                                  pd_control_enabled=True,
                                                  on_rack=False)
   observation = env.reset()
