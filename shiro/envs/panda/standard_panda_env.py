@@ -1,6 +1,4 @@
-# Copyright (C) 2019 Istituto Italiano di Tecnologia (IIT)
-# This software may be modified and distributed under the terms of the
-# LGPL-2.1+ license. See the accompanying LICENSE file for details.
+# Copyright CU Boulder 2021.
 
 import os, inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
@@ -11,6 +9,7 @@ from gym import spaces
 import numpy as np
 import math as m
 
+# use base panda env
 from pybullet_robot_envs.envs.panda_envs.panda_push_gym_env import pandaPushGymEnv
 from pybullet_robot_envs.envs.world_envs.world_env import get_objects_list
 from pybullet_robot_envs.envs.utils import goal_distance, scale_gym_data

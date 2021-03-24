@@ -11,6 +11,7 @@ os.sys.path.insert(0, parentdir)
 
 from gym import spaces
 import numpy as np
+
 from pybullet_envs.minitaur.envs import minitaur_gym_env
 import pybullet_data
 
@@ -22,7 +23,7 @@ INIT_BALL_DISTANCE = 5.0
 ACTION_EPS = 0.01
 
 
-class MinitaurBallGymEnv(minitaur_gym_env.MinitaurGymEnv):
+class ShiroMinitaurBallGymEnv(minitaur_gym_env.MinitaurGymEnv):
   """The gym environment for the minitaur and a ball.
 
   It simulates a minitaur (a quadruped robot) and a ball. The state space
