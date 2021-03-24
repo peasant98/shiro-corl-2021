@@ -216,7 +216,7 @@ def main():
 
         experiments.train_hrl_agent_with_evaluation(
             agent=agent,
-            env=make_ant_env(0, test=False),
+            env=make_panda_env(0, test=False),
             steps=args.steps,
             outdir=args.outdir,
             eval_n_steps=None,
