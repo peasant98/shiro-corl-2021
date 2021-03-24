@@ -3,8 +3,11 @@ Code associated with "Soft Hierarchical Reinforcement Learning for Robotics", a 
 
 ## Envs
 
-
+The Panda Environment.
 ![](imgs/panda_env.png)
+
+The Minitaur Environment
+![](imgs/minitaur_env.png)
 ## Installation 
 
 There are two environments that you'll need to install: the Franka Panda robot
