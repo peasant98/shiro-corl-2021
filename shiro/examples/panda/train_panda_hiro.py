@@ -148,22 +148,17 @@ def main():
         )
 
     eval_env = make_panda_env(0, test=True)
-
-    env_state_dim = eval_env.state_dim
-    env_action_dim = eval_env.action_dim
-
+    env_state_dim = eval_env.observation_space['observation'].shape[0]
+    env_action_dim = eval_env.action_space.shape[0]
+    # subgoal dim is user-chosen
     env_subgoal_dim = eval_env.subgoal_dim
+    env_goal_dim = eval_env.observation_space['desired_goal'].shape[0]
 
-    # determined from the ant env
-    if args.env == 'AntMaze' or args.env == 'AntPush':
-        env_goal_dim = 2
-    else:
-        env_goal_dim = 3
-
+    obs_space = eval_env.observation_space['observation']
     action_space = eval_env.action_space
-    subgoal_space = eval_env.subgoal_space
+
     scale_low = action_space.high * np.ones(env_action_dim)
-    scale_high = subgoal_space.high * np.ones(env_subgoal_dim)
+    scale_high = obs_space.high[:env_subgoal_dim] * np.ones(env_subgoal_dim)
 
     def low_level_burnin_action_func():
         """Select random actions until model is updated one or more times."""
@@ -171,7 +166,7 @@ def main():
 
     def high_level_burnin_action_func():
         """Select random actions until model is updated one or more times."""
-        return np.random.uniform(subgoal_space.low, subgoal_space.high).astype(np.float32)
+        return np.random.uniform(obs_space.low[:env_subgoal_dim], obs_space.high[:env_subgoal_dim]).astype(np.float32)
 
     gpu = 0 if torch.cuda.is_available() else None
     agent = HIROAgent(state_dim=env_state_dim,

@@ -44,7 +44,8 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
         for el in obs_lim:
             observation_low.extend([el[0]])
             observation_high.extend([el[1]])
-
+        self.obs_high = observation_high
+        self.obs_low = observation_low
         goal_obs = self.get_goal_observation()
 
         # Configure the observation space

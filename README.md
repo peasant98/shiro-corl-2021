@@ -33,6 +33,16 @@ cd bullet3
 pip3 install .
 ```
 
+To install the RL algorithms, clone our *forked* version of PFRL
+[here](https://github.com/watakandai/pfrl). The steps to install are:
+
+```sh
+git clone https://github.com/watakandai/pfrl
+cd pfrl
+pip install .
+
+```
+
 Then, to install this package (`shiro`):
 
 ```sh
