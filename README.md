@@ -50,7 +50,8 @@ cd shiro-corl-2021
 pip3 install .
 ```
 
-
 ## Running Experiments
 
 ## Contributing
+
+Pull Requests are always welcome!
