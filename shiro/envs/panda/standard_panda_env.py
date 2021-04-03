@@ -55,6 +55,9 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
             observation=spaces.Box(np.array(observation_low), np.array(observation_high), dtype='float32'),
         ))
 
+        self.subgoal_space = gym.spaces.Box(low=observation_low*-1, high=observation_high)
+
+
         # Configure action space
         action_dim = self._robot.get_action_dim()
         action_bound = 1
