@@ -50,7 +50,57 @@ cd shiro-corl-2021
 pip3 install .
 ```
 
+## Supercomputer Installation
+
+Compared to the traditional installation, the supercomputer installation
+is significantly more involved. So, we have created an install script that should help you get up and running.
+
+*Note*: Everything in simulation can only run headlessly.
+
+1. Get an account on the CU Supercomputer System; you can
+get it [here](https://curc.readthedocs.io/en/latest/access/logging-in.html).
+
+2. You can ssh into your account as follows:
+
+```sh
+ssh <your-identikey-here>@login.rc.colorado.edu
+```
+
+Then, you'll need to finish the 2-factor authentication process.
+
+3. `cd` into your `projects` directory; that is, do:
+
+```sh
+cd /projects/<your-identikey-here>
+```
+
+4. To clone and run:
+
+```sh
+git clone https://github.com/peasant98/shiro-corl-2021
+./install.sh
+
+```
+
+5. To run an example to ensure everything is working, end-to-end:
+
+```sh
+python3 shiro-corl-2021/shiro/examples/panda/train_panda_hiro.py
+```
+
 ## Running Experiments
+
+Training the Franka Panda:
+```sh
+python3 shiro-corl-2021/shiro/examples/panda/train_panda_hiro.py
+```
+
+Training the Minitaur:
+
+TBD
+
+
+
 
 ## Contributing
 
