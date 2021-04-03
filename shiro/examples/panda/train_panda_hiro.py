@@ -1,10 +1,10 @@
 """
 Training:
-    python shiro/examples/panda/train_panda_hiro.py
+    python3 shiro/examples/panda/train_panda_hiro.py
 Render Trained:
-    python shiro/examples/panda/train_panda_hiro.pyy --render --demo --load <dir>
+    python3 shiro/examples/panda/train_panda_hiro.pyy --render --demo --load <dir>
 Example:
-    python shiro/examples/panda/train_panda_hiro.py --render --demo --load results/6900d36edd696e65e1d2ae72dd58796a2d7c19ef-34c626fd-4418a6b0/best
+    python3 shiro/examples/panda/train_panda_hiro.py --render --demo --load results/6900d36edd696e65e1d2ae72dd58796a2d7c19ef-34c626fd-4418a6b0/best
 """
 import argparse
 import functools
@@ -13,7 +13,7 @@ import logging
 import numpy as np
 import torch
 
-from hiro_robot_envs.envs import create_maze_env, AntEnvWithGoal
+# from hiro_robot_envs.envs import create_maze_env, AntEnvWithGoal
 
 from shiro.envs import ShiroPandaPushGymGoalEnv
 
