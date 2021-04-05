@@ -55,7 +55,8 @@ pip3 install .
 Compared to the traditional installation, the supercomputer installation
 is significantly more involved. So, we have created an install script that should help you get up and running.
 
-*Note*: Everything in simulation can only run headlessly.
+*Note*: Everything in simulation can only run headlessly. Also, if any issues
+come up with the installation, please let me know! I might've gotten lucky in some areas.
 
 1. Get an account on the CU Supercomputer System; you can
 get it [here](https://curc.readthedocs.io/en/latest/access/logging-in.html).
@@ -78,7 +79,7 @@ cd /projects/<your-identikey-here>
 
 ```sh
 git clone https://github.com/peasant98/shiro-corl-2021
-./install.sh
+./install.sh --identikey <your-identikey-here>
 
 ```
 
