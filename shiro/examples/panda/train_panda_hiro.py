@@ -168,9 +168,10 @@ def main():
 
     def high_level_burnin_action_func():
         """Select random actions until model is updated one or more times."""
-        return np.random.uniform(obs_space.low[:env_subgoal_dim], obs_space.high[:env_subgoal_dim]).astype(np.float32)
+        return np.random.uniform(scale_high * -1, scale_high).astype(np.float32)
 
     gpu = 0 if torch.cuda.is_available() else None
+
     agent = HIROAgent(state_dim=env_state_dim,
                       action_dim=env_action_dim,
                       goal_dim=env_goal_dim,

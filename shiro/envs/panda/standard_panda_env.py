@@ -108,7 +108,6 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
         reward = self.compute_reward(obs['achieved_goal'], obs['desired_goal'], info)
 
         # reward = self.compute_dense_reward(obs['achieved_goal'], obs['desired_goal'], info)
-
         return obs, reward, done, info
 
     def _termination(self):
