@@ -34,9 +34,12 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
                                                  includeVelObs)
 
         # Define spaces
+        self.subgoal_dim = 15
         self.observation_space, self.action_space = self.create_gym_spaces()
 
     def create_gym_spaces(self):
+        self.subgoal_dim = 15
+
         # Configure observation limits
         obs, obs_lim = self.get_extended_observation()
         observation_low = []
@@ -55,9 +58,8 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
             observation=spaces.Box(np.array(observation_low), np.array(observation_high), dtype='float32'),
         ))
 
-        self.subgoal_space = gym.spaces.Box(low=observation_low*-1, high=observation_high)
-
-
+        self.subgoal_space = spaces.Box(np.array(observation_low)[:self.subgoal_dim], np.array(observation_high)[:self.subgoal_dim], dtype='float32')
+        
         # Configure action space
         action_dim = self._robot.get_action_dim()
         action_bound = 1
