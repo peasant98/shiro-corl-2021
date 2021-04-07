@@ -58,7 +58,8 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
             observation=spaces.Box(np.array(observation_low), np.array(observation_high), dtype='float32'),
         ))
 
-        self.subgoal_space = spaces.Box(np.array(observation_low)[:self.subgoal_dim], np.array(observation_high)[:self.subgoal_dim], dtype='float32')
+        self.subgoal_space = spaces.Box(np.ones(len(self.obs_low))[:self.subgoal_dim],
+                                        np.ones(len(self.obs_high))[:self.subgoal_dim], dtype='float32')
 
         # Configure action space
         action_dim = self._robot.get_action_dim()
@@ -106,6 +107,8 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
         done = self._termination() or info['is_success']
         reward = self.compute_reward(obs['achieved_goal'], obs['desired_goal'], info)
 
+        # reward = self.compute_dense_reward(obs['achieved_goal'], obs['desired_goal'], info)
+
         return obs, reward, done, info
 
     def _termination(self):
@@ -125,3 +128,9 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
         d = goal_distance(achieved_goal[:3], goal[:3])
 
         return -(d > self._target_dist_min).astype(np.float32)
+
+    def compute_dense_reward(self, achieved_goal, goal, info):
+        # Compute distance between goal and the achieved goal.
+        d = goal_distance(achieved_goal[:3], goal[:3])
+
+        return -d

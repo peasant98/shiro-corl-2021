@@ -142,7 +142,7 @@ def main():
 
         return env
 
-    def make_batch_ant__env(test):
+    def make_batch_panda_env(test):
         return pfrl.envs.MultiprocessVectorEnv(
             [functools.partial(make_panda_env, idx, test) for idx in range(args.num_envs)]
         )
@@ -158,7 +158,9 @@ def main():
     action_space = eval_env.action_space
 
     scale_low = action_space.high * np.ones(env_action_dim)
-    scale_high = obs_space.high[:env_subgoal_dim] * np.ones(env_subgoal_dim)
+    # scale_high = obs_space.high[:env_subgoal_dim] * np.ones(env_subgoal_dim)
+    scale_high = np.ones(env_subgoal_dim)
+
 
     def low_level_burnin_action_func():
         """Select random actions until model is updated one or more times."""
