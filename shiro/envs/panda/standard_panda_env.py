@@ -58,7 +58,7 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
             observation=spaces.Box(np.array(observation_low), np.array(observation_high), dtype='float32'),
         ))
 
-        self.subgoal_space = spaces.Box(np.ones(len(self.obs_low))[:self.subgoal_dim],
+        self.subgoal_space = spaces.Box(np.ones(len(self.obs_low))[:self.subgoal_dim] * -1,
                                         np.ones(len(self.obs_high))[:self.subgoal_dim], dtype='float32')
 
         # Configure action space
@@ -105,9 +105,9 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
         }
 
         done = self._termination() or info['is_success']
-        reward = self.compute_reward(obs['achieved_goal'], obs['desired_goal'], info)
+        # reward = self.compute_reward(obs['achieved_goal'], obs['desired_goal'], info)
 
-        # reward = self.compute_dense_reward(obs['achieved_goal'], obs['desired_goal'], info)
+        reward = self.compute_dense_reward(obs['achieved_goal'], obs['desired_goal'], info)
         return obs, reward, done, info
 
     def _termination(self):
