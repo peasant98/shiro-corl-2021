@@ -10,6 +10,27 @@ Code associated with "Soft Hierarchical Reinforcement Learning for Robotics", a 
 ### The Minitaur Environment
 
 ![](imgs/minitaur_env.png)
+
+## Docker
+
+To install Docker with GPU support, do the following:
+
+```sh
+curl https://get.docker.com | sh \
+  && sudo systemctl --now enable docker
+
+sudo apt-get update
+
+sudo apt-get install -y nvidia-docker2
+
+sudo systemctl restart docker
+
+# testing gpu
+sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
+
+```
+
+
 ## Installation 
 
 There are two environments that you'll need to install: the Franka Panda robot
