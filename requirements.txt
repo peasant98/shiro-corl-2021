@@ -2,3 +2,6 @@ numpy
 # torch
 # our version of pfrl, with HRL algorithms
 # git+https://github.com/watakandai/pfrl.git
+matplotlib
+pandas
+tensorflow
