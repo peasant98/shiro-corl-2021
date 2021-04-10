@@ -28,7 +28,7 @@ RUN cd .. \
 RUN cd .. \
     && git clone https://github.com/watakandai/pfrl \
     && cd pfrl \
-    && pip3 install . \
+    && pip3 --no-cache-dir install . \
     && cd .. \
     && mkdir shiro-corl-2021
 COPY . shiro-corl-2021/
