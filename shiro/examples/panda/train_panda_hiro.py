@@ -89,7 +89,6 @@ def parse_rl_args():
         default=False,
         help="Record videos of evaluation envs. --render should also be specified.",
     )
-
     parser.add_argument(
         "--render",
         action="store_true",
