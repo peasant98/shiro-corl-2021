@@ -23,7 +23,7 @@ RUN cd .. \
     && wget https://gist.githubusercontent.com/peasant98/2eb68033c2ef27310eb4ff0f293deec1/raw/8ee1fe65bdef458b6ed09589d484cfd39c2f85bd/requirements.txt \
     && pip3 install -r requirements.txt \
     && pip3 install -e . \
-    && cd .. \
+RUN cd .. \
     && git clone https://github.com/watakandai/pfrl \
     && cd pfrl \
     && pip3 install . \
