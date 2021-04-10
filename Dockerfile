@@ -34,11 +34,3 @@ RUN cd .. \
 COPY . shiro-corl-2021/
 RUN cd shiro-corl-2021 \
     && pip3 install .
-
-#     && cd shiro-corl-2021 \
-#     && pip3 install . \
-#     && echo "Successfully installed all packages." \
-# ENV NVIDIA_VISIBLE_DEVICES \
-#     ${NVIDIA_VISIBLE_DEVICES:-all}
-# ENV NVIDIA_DRIVER_CAPABILITIES \
-#     ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
