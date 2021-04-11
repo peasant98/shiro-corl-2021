@@ -2,7 +2,7 @@
 Training:
     python3 shiro/examples/minitaur/train_minitaur_hiro.py
 Render Trained:
-    python3 shiro/examples/minitaur/train_minitaur_hiro.pyy --render --demo --load <dir>
+    python3 shiro/examples/minitaur/train_minitaur_hiro.py --render --demo --load <dir>
 Example:
     python3 shiro/examples/minitaur/train_minitaur_hiro.py --render --demo --load results/6900d36edd696e65e1d2ae72dd58796a2d7c19ef-34c626fd-4418a6b0/best
 """
