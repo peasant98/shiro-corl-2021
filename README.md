@@ -56,6 +56,8 @@ docker run --rm --gpus all -v /home/peasant98/Desktop/Robotics/shiro-corl-2021:/
 
 ### Using the Docker Hub
 
+Check out the Docker Hub link [here](https://hub.docker.com/r/peasant98/shiro)!
+
 ```sh
 
 docker pull peasant98/shiro:latest
