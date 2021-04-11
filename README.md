@@ -50,7 +50,8 @@ An example (this is what I used) is:
 ```sh
 docker build . -t myimg
 
-docker run --rm --gpus all -v /home/peasant98/Desktop/Robotics/shiro-corl-2021:/shiro-corl-2021 -t -i --user "$(id -u)" myimg bash /shiro-corl-2021/run_container.sh
+docker run --rm --gpus all -v /home/peasant98/Desktop/Robotics/ 
+shiro-corl-2021:/shiro-corl-2021 -t -i --user "$(id -u)" myimg bash /shiro-corl-2021/run_container.sh
 
 ```
 
@@ -83,7 +84,7 @@ singularity exec --nv --bind /home/peasant98/Desktop/Robotics/shiro-corl-2021:/s
 
 somewhere in your script.
 
-## Installation 
+## Installation without Docker (harder)
 
 There are two environments that you'll need to install: the Franka Panda robot
 environment and the Minitaur environment. To do so, follow the below steps:
@@ -123,7 +124,7 @@ cd shiro-corl-2021
 pip3 install .
 ```
 
-## Supercomputer Installation
+## Supercomputer Installation without Docker (hardest)
 
 Compared to the traditional installation, the supercomputer installation
 is significantly more involved. So, we have created an install script that should help you get up and running.
