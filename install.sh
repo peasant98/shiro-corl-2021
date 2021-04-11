@@ -89,28 +89,15 @@ rm requirements.txt
 
 # get the correct requirements.txt for the supercomputer
 wget https://gist.githubusercontent.com/peasant98/2eb68033c2ef27310eb4ff0f293deec1/raw/8ee1fe65bdef458b6ed09589d484cfd39c2f85bd/requirements.txt
-apip_install .
-
-
-if [ ! -d ${python_packages_dir}/pybullet_robot_envs/robot_data/ ]
-then
-    mkdir ${python_packages_dir}/pybullet_robot_envs/robot_data/
-fi
-
-if [ ! -d ${python_packages_dir}/pybullet_robot_envs/robot_data/franka_panda ]
-then
-    mkdir ${python_packages_dir}/pybullet_robot_envs/robot_data/franka_panda
-fi
-
-# even after pip install, some things need to be moved -- the robot_data stuff
-cp -r pybullet_robot_envs/robot_data/franka_panda ${python_packages_dir}/pybullet_robot_envs/robot_data/franka_panda
+apip_install -r requirements.txt
+apip_install -e .
 
 cd ..
 
 
 git clone https://github.com/watakandai/pfrl
 cd pfrl
-apip_install  .
+apip_install .
 cd ..
 
 cd shiro-corl-2021

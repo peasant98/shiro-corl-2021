@@ -1,6 +1,5 @@
 #!/usr/bin bash
 
-# installation on a non-CU Boulder supercomputer node
 
 cd ..
 
