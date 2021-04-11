@@ -19,6 +19,10 @@ To install Docker with GPU support, do the following:
 curl https://get.docker.com | sh \
   && sudo systemctl --now enable docker
 
+
+# IMPORTANT: if you want to run docker as non-root, do the following:
+sudo usermod -aG docker <your-user>
+
 sudo apt-get update
 
 sudo apt-get install -y nvidia-docker2
@@ -30,6 +34,52 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
 ```
 
+### Docker Build
+
+The standard docker run is:
+
+```sh
+docker build . -t <tag-name-here>
+
+docker run --rm --gpus all -v <location of this repo on your computer>:/shiro-corl-2021 -t -i --user "$(id -u)" <tag-name-here> bash /shiro-corl-2021/run_container.sh
+
+```
+
+An example (this is what I used) is:
+
+```sh
+docker build . -t myimg
+
+docker run --rm --gpus all -v /home/peasant98/Desktop/Robotics/shiro-corl-2021:/shiro-corl-2021 -t -i --user "$(id -u)" myimg bash /shiro-corl-2021/run_container.sh
+
+```
+
+### Using the Docker Hub
+
+```sh
+
+docker pull peasant98/shiro:latest
+docker run --rm --gpus all -v <location of this repo on your computer>:/shiro-corl-2021 -t -i --user "$(id -u)" peasant98/shiro:latest bash /shiro-corl-2021/run_container.sh
+
+```
+
+### Running with Singularity
+To run with singularity (which can be done on the CU Boulder supercomputer):
+
+```sh
+ml singularity/3.6.4
+
+# pull the docker image from the docker hub:
+singularity pull docker://peasant98/shiro
+```
+
+Then, if you want to run a job on the supercomputer, specify that you want to run a job on the **GPU** cluster, and have
+
+```sh
+singularity exec --nv --bind /home/peasant98/Desktop/Robotics/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container.sh
+```
+
+somewhere in your script.
 
 ## Installation 
 
