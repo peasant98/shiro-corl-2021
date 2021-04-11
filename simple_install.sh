@@ -25,24 +25,25 @@ cd ..
 
 
 # install the git-lfs tool
-wget https://github.com/git-lfs/git-lfs/releases/download/v2.13.2/git-lfs-linux-amd64-v2.13.2.tar.gz
-tar -xzvf git-lfs-linux-amd64-v2.13.2.tar.gz
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh |  sudo bash
+sudo apt install -y git-lfs
+git lfs install
 
-./install.sh
 
 # pybullet robot envs
 git clone https://github.com/robotology-playground/pybullet-robot-envs.git
 cd pybullet-robot-envs
 rm requirements.txt
 
-# get the correct requirements.txt for the supercomputer
+# get the correct requirements.txt
 wget https://gist.githubusercontent.com/peasant98/2eb68033c2ef27310eb4ff0f293deec1/raw/8ee1fe65bdef458b6ed09589d484cfd39c2f85bd/requirements.txt
-pip3 install .
+pip3 install -r requirements.txt
+pip3 install -e .
 
 
 git clone https://github.com/watakandai/pfrl
 cd pfrl
-pip3 install  .
+pip3 --no-cache-dir install .
 cd ..
 
 cd shiro-corl-2021
