@@ -82,7 +82,7 @@ Then, if you want to run a job on the supercomputer, specify that you want to ru
 singularity exec --nv --bind /home/peasant98/Desktop/Robotics/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container.sh
 ```
 
-somewhere in your script.
+somewhere in your script. Checkout `sample_supercomputer_job.sh` for an example.
 
 ## Installation without Docker (harder)
 
