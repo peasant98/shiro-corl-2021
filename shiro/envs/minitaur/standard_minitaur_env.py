@@ -15,6 +15,8 @@ import numpy as np
 from pybullet_envs.minitaur.envs import minitaur_gym_env
 from pybullet_envs.minitaur.envs import minitaur_logging
 
+from pybullet_robot_envs.envs.utils import scale_gym_data
+
 import time
 
 import pybullet_data
@@ -66,6 +68,7 @@ class ShiroMinitaurBallGymEnv(minitaur_gym_env.MinitaurGymEnv):
     self._cam_dist = 2.0
     self._cam_yaw = -70
     self._cam_pitch = -30
+    # limits of each space can be inferred below
     self.action_space = spaces.Box(np.array([-1]), np.array([1]))
     self.observation_space = spaces.Box(np.array([-math.pi, 0]), np.array([math.pi, 100]))
     self.subgoal_space = spaces.Box(np.array([-math.pi, 0]), np.array([math.pi, 100]))
