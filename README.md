@@ -84,7 +84,7 @@ singularity exec --nv --bind /home/peasant98/Desktop/Robotics/shiro-corl-2021:/s
 
 somewhere in your script. Checkout `sample_supercomputer_job.sh` for an example. Note that you should have your files and run the script from the `/projects/<identikey goes here>` directory.
 
-## Installation without Docker (harder)
+## Installation without Docker (harder and more time consuming)
 
 There are two environments that you'll need to install: the Franka Panda robot
 environment and the Minitaur environment. To do so, follow the below steps:
