@@ -10,4 +10,4 @@
 module load singularity/3.6.4
 
 # the below line is an example
-singularity exec --nv --bind /projects/mast4878/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container.sh
+singularity exec --nv --bind /projects/mast4878/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container_supercomputer.sh

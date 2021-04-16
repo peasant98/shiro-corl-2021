@@ -73,13 +73,13 @@ To run with singularity (which can be done on the CU Boulder supercomputer):
 ml singularity/3.6.4
 
 # pull the docker image from the docker hub:
-singularity pull docker://peasant98/shiro
+singularity build shiro.simg docker://peasant98/shiro:latest
 ```
 
 Then, if you want to run a job on the supercomputer, specify that you want to run a job on the **GPU** cluster, and have
 
 ```sh
-singularity exec --nv --bind /home/peasant98/Desktop/Robotics/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container.sh
+singularity exec --nv --bind /home/peasant98/Desktop/Robotics/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container_supercomputer.sh
 ```
 
 somewhere in your script. Checkout `sample_supercomputer_job.sh` for an example. Note that you should have your files and run the script from the `/projects/<identikey goes here>` directory.
