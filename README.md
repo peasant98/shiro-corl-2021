@@ -82,6 +82,12 @@ Then, if you want to run a job on the supercomputer, specify that you want to ru
 singularity exec --nv --bind /home/peasant98/Desktop/Robotics/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container_supercomputer.sh
 ```
 
+or, for **CPU** clusters, have
+
+```sh
+singularity exec --bind /home/peasant98/Desktop/Robotics/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container_supercomputer.sh
+```
+
 somewhere in your script. Checkout `sample_supercomputer_job.sh` for an example. Note that you should have your files and run the script from the `/projects/<identikey goes here>` directory.
 
 ## Installation without Docker (harder and more time consuming)
@@ -173,9 +179,6 @@ python3 shiro-corl-2021/shiro/examples/panda/train_panda_hiro.py
 Training the Minitaur:
 
 TBD
-
-
-
 
 ## Contributing
 
