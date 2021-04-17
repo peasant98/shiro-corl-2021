@@ -157,9 +157,9 @@ def main():
     action_space = eval_env.action_space
 
     scale_low = action_space.high * np.ones(env_action_dim)
+
     # scale_high = obs_space.high[:env_subgoal_dim] * np.ones(env_subgoal_dim)
     scale_high = np.ones(env_subgoal_dim)
-
 
     def low_level_burnin_action_func():
         """Select random actions until model is updated one or more times."""
