@@ -6,3 +6,4 @@ matplotlib
 pandas
 tensorflow
 tensorboard==1.15
+sklearn
