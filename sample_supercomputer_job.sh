@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --time=10:00:00
+#SBATCH --time=23:59:59
 #SBATCH --partition=sgpu      
 #SBATCH --qos=normal
 #SBATCH --output=sample-%j.out
