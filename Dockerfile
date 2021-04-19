@@ -26,7 +26,7 @@ RUN cd .. \
 
 
 RUN cd .. \
-    && git clone https://github.com/watakandai/pfrl \
+    && git clone --branch change-temperature https://github.com/watakandai/pfrl \
     && cd pfrl \
     && pip3 --no-cache-dir install . \
     && cd .. \
