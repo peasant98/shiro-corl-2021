@@ -32,5 +32,6 @@ RUN cd .. \
     && cd .. \
     && mkdir shiro-corl-2021
 COPY . shiro-corl-2021/
+
 RUN cd shiro-corl-2021 \
     && pip3 install .
