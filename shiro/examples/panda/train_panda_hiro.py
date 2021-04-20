@@ -183,7 +183,7 @@ def main():
                       subgoal_freq=10,
                       train_freq=10,
                       reward_scaling=0.1,
-                      goal_threshold=5,
+                      goal_threshold=0.1,
                       gpu=gpu,
                       add_entropy_layer=args.add_entropy_layer)
 
