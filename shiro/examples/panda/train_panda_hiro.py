@@ -130,13 +130,12 @@ def main():
     args.outdir = experiments.prepare_output_dir(args, args.outdir)
     print("Output files are saved in {}".format(args.outdir))
 
-
     def make_panda_env(idx, test):
 
         # use different seeds for train vs test envs
         process_seed = int(process_seeds[idx])
-        env_seed = 2 ** 32 - 1 - process_seed if test else process_seed
-        # env_seed = np.random.randint(0, 2**32 - 1) if not test else process_seed
+        # env_seed = 2 ** 32 - 1 - process_seed if test else process_seed
+        env_seed = np.random.randint(0, 2**32 - 1) if not test else process_seed
         utils.set_random_seed(env_seed)
         # create the panda env
         env = ShiroPandaPushGymGoalEnv(use_IK=True, renders=args.render)
