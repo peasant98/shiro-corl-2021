@@ -225,7 +225,7 @@ def main():
             outdir=args.outdir,
             eval_n_steps=None,
             eval_interval=5000,
-            eval_n_episodes=10,
+            eval_n_episodes=5,
             use_tensorboard=True,
             record=args.record
         )
