@@ -105,7 +105,7 @@ def parse_rl_args():
         "--temperature",
         type=float,
         default=0.1,
-        help="Choose what temperature to use, if entropy is enabled.",
+        help="Choose what temperature to use, if any sort of entropy is enabled.",
     )
     parser.add_argument("--num-envs", type=int, default=1, help="Number of envs run in parallel.")
     args = parser.parse_args()
