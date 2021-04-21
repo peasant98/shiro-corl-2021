@@ -18,7 +18,7 @@ RUN cd .. \
     && pip3 install . \
     && cd .. \
     && git clone https://github.com/peasant98/panda-pybullet-envs \
-    && cd pybullet-robot-envs \
+    && cd panda-pybullet-envs \
     && rm requirements.txt \
     && wget https://gist.githubusercontent.com/peasant98/2eb68033c2ef27310eb4ff0f293deec1/raw/8ee1fe65bdef458b6ed09589d484cfd39c2f85bd/requirements.txt \
     && pip3 install -r requirements.txt \
