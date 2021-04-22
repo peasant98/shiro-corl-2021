@@ -66,11 +66,14 @@ docker run --rm --gpus all -v <location of this repo on your computer>:/shiro-co
 
 ```
 
-### Running with Singularity
+### Running with Singularity on the Supercomputer
 To run with singularity (which can be done on the CU Boulder supercomputer):
 
 ```sh
+ssh scompile
 ml singularity/3.6.4
+
+# IMPORTANT: make sure to clone this repo from your /projects/<identikey> directory, and do the following command from in that repo:
 
 # pull the docker image from the docker hub:
 singularity build shiro.simg docker://peasant98/shiro:latest
