@@ -13,6 +13,12 @@ from gym import spaces
 import numpy as np
 
 from pybullet_envs.minitaur.envs import minitaur_gym_env
+from pybullet_envs.minitaur.envs import minitaur_logging
+
+from pybullet_robot_envs.envs.utils import scale_gym_data
+
+import time
+
 import pybullet_data
 
 GOAL_DISTANCE_THRESHOLD = 0.8
@@ -62,8 +68,61 @@ class ShiroMinitaurBallGymEnv(minitaur_gym_env.MinitaurGymEnv):
     self._cam_dist = 2.0
     self._cam_yaw = -70
     self._cam_pitch = -30
+    # limits of each space can be inferred below
     self.action_space = spaces.Box(np.array([-1]), np.array([1]))
     self.observation_space = spaces.Box(np.array([-math.pi, 0]), np.array([math.pi, 100]))
+    self.subgoal_space = spaces.Box(np.array([-math.pi, 0]), np.array([math.pi, 100]))
+
+    self.subgoal_dim = 2
+
+
+  def step(self, action):
+    """Step forward the simulation, given the action.
+
+    Args:
+      action: A list of desired motor angles for eight motors.
+
+    Returns:
+      observations: The angles, velocities and torques of all motors.
+      reward: The reward for the current state-action pair.
+      done: Whether the episode has ended.
+      info: A dictionary that stores diagnostic information.
+
+    Raises:
+      ValueError: The action dimension is not the same as the number of motors.
+      ValueError: The magnitude of actions is out of bounds.
+    """
+    self._last_base_position = self.minitaur.GetBasePosition()
+
+    if self._is_render:
+      # Sleep, otherwise the computation takes less time than real time,
+      # which will make the visualization like a fast-forward video.
+      time_spent = time.time() - self._last_frame_time
+      self._last_frame_time = time.time()
+      time_to_sleep = self.control_time_step - time_spent
+      if time_to_sleep > 0:
+        time.sleep(time_to_sleep)
+      base_pos = self.minitaur.GetBasePosition()
+      # Keep the previous orientation of the camera set by the user.
+      [yaw, pitch, dist] = self._pybullet_client.getDebugVisualizerCamera()[8:11]
+      self._pybullet_client.resetDebugVisualizerCamera(dist, yaw, pitch, base_pos)
+
+    for env_randomizer in self._env_randomizers:
+      env_randomizer.randomize_step(self)
+
+    action = self._transform_action_to_motor_command(action)
+    self.minitaur.Step(action)
+    reward = self._reward()
+    done = self._termination()
+    if self._log_path is not None:
+      minitaur_logging.update_episode_proto(self._episode_proto, self.minitaur, action,
+                                            self._env_step_counter)
+    self._env_step_counter += 1
+    if done:
+      self.minitaur.Terminate()
+
+    return self._get_observation(), reward, done, {}
+
 
   def reset(self):
     self._ball_id = 0
@@ -91,6 +150,13 @@ class ShiroMinitaurBallGymEnv(minitaur_gym_env.MinitaurGymEnv):
     distance = math.sqrt(minitaur_translation_ball[0]**2 + minitaur_translation_ball[1]**2)
     angle = math.atan2(minitaur_translation_ball[0], minitaur_translation_ball[1])
     self._observation = [angle - math.pi / 2, distance]
+
+    self._observation = {
+            'observation': np.array(self._observation),
+            'achieved_goal': np.array(self._observation),
+            # only the second value in desired_goal matters
+            'desired_goal': np.array([math.pi, 0])
+        }
     return self._observation
 
   def _transform_action_to_motor_command(self, action):

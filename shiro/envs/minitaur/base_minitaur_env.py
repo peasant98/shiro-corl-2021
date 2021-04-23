@@ -233,12 +233,19 @@ class ShiroMinitaurGymEnv(gym.Env):
     self.reset()
     observation_high = (self._get_observation_upper_bound() + OBSERVATION_EPS)
     observation_low = (self._get_observation_lower_bound() - OBSERVATION_EPS)
+
+    self.observation_high = observation_high
+    self.observation_low = observation_low
+
     action_dim = NUM_MOTORS
     action_high = np.array([self._action_bound] * action_dim)
     self.action_space = spaces.Box(-action_high, action_high)
     self.observation_space = spaces.Box(observation_low, observation_high)
     self.viewer = None
     self._hard_reset = hard_reset  # This assignment need to be after reset()
+
+    # for hrl algorithms
+    self.subgoal_dim = 15
 
   def close(self):
     if self._env_step_counter > 0:
@@ -362,6 +369,8 @@ class ShiroMinitaurGymEnv(gym.Env):
     self._env_step_counter += 1
     if done:
       self.minitaur.Terminate()
+    # convert observation to dict
+
     return np.array(self._get_observation()), reward, done, {}
 
   def render(self, mode="rgb_array", close=False):

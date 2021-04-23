@@ -34,9 +34,12 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
                                                  includeVelObs)
 
         # Define spaces
+        self.subgoal_dim = 15
         self.observation_space, self.action_space = self.create_gym_spaces()
 
     def create_gym_spaces(self):
+        self.subgoal_dim = 15
+
         # Configure observation limits
         obs, obs_lim = self.get_extended_observation()
         observation_low = []
@@ -44,7 +47,8 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
         for el in obs_lim:
             observation_low.extend([el[0]])
             observation_high.extend([el[1]])
-
+        self.obs_high = observation_high
+        self.obs_low = observation_low
         goal_obs = self.get_goal_observation()
 
         # Configure the observation space
@@ -53,6 +57,9 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
             achieved_goal=spaces.Box(-10, 10, shape=goal_obs['achieved_goal'].shape, dtype='float32'),
             observation=spaces.Box(np.array(observation_low), np.array(observation_high), dtype='float32'),
         ))
+
+        self.subgoal_space = spaces.Box(np.ones(len(self.obs_low))[:self.subgoal_dim] * -1,
+                                        np.ones(len(self.obs_high))[:self.subgoal_dim], dtype='float32')
 
         # Configure action space
         action_dim = self._robot.get_action_dim()
@@ -98,8 +105,9 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
         }
 
         done = self._termination() or info['is_success']
-        reward = self.compute_reward(obs['achieved_goal'], obs['desired_goal'], info)
+        # reward = self.compute_reward(obs['achieved_goal'], obs['desired_goal'], info)
 
+        reward = self.compute_dense_reward(obs['achieved_goal'], obs['desired_goal'], info)
         return obs, reward, done, info
 
     def _termination(self):
@@ -119,3 +127,9 @@ class ShiroPandaPushGymGoalEnv(gym.GoalEnv, pandaPushGymEnv):
         d = goal_distance(achieved_goal[:3], goal[:3])
 
         return -(d > self._target_dist_min).astype(np.float32)
+
+    def compute_dense_reward(self, achieved_goal, goal, info):
+        # Compute distance between goal and the achieved goal.
+        d = goal_distance(achieved_goal[:3], goal[:3])
+
+        return -d

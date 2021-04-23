@@ -1,0 +1,372 @@
+commit dc20ad9d64aa3f89f824fca22ea0fad78c4c87b9
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 17 12:23:24 2021 -0600
+
+    forgot to add to requirements
+
+commit 84ad9f084a71a73676fa723a8cc7a5cbc1cc807f
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 17 00:38:13 2021 -0600
+
+    retrigger build
+
+commit aabcf3fc7bc50c6891a9a00d4d613f9e8fcb5d78
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Fri Apr 16 01:09:46 2021 -0600
+
+    cpu example of job
+
+commit efa6d6b037e8cb64b562b7ec2c5b9144cc9c9c65
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Thu Apr 15 23:34:46 2021 -0600
+
+    detail of clarification in the readme
+
+commit 8b03f0175797f143d8fc928f169783c5d8551a1a
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Thu Apr 15 19:36:47 2021 -0600
+
+    new supercomputer scripts
+
+commit 0e4a82210fec6c655a53dfecd20b79025a0d9643
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Apr 14 19:33:43 2021 -0600
+
+    trigger build
+
+commit c73bb873f0489227ec92a6a4d844c3b34caf0e36
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Apr 14 10:36:00 2021 -0600
+
+    add note
+
+commit 8670340bb4772d68e99f39b5fc96979417be6665
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Tue Apr 13 22:04:14 2021 -0600
+
+    ye
+
+commit 833e6e61a4d9fbc00aa2248714f111d0edbb05c7
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Tue Apr 13 22:04:10 2021 -0600
+
+    add another note in the readme
+
+commit 861b2db9da7441acc87387ddc1d5c45d712a1d3b
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Tue Apr 13 22:02:11 2021 -0600
+
+    example job
+
+commit f3c4988bbc1d41a943cc63f6acba1f604e5b9fc0
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sun Apr 11 15:57:37 2021 -0600
+
+    typo
+
+commit 514a2db8d368b36751fddcc4a5ff7ef9bafbc4cd
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 10 18:36:44 2021 -0600
+
+    fix noob mistakes in install script
+
+commit 6562bcc335a6035d0fda71cee025c1f267700003
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 10 18:34:19 2021 -0600
+
+    update readme
+
+commit 25a9bed43036f91994a0abf70c10eebbcf63e607
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 10 18:34:06 2021 -0600
+
+    update simple install
+
+commit 7192222bdda6e91035e341c05b7e3a83f975ad6a
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 10 18:09:21 2021 -0600
+
+    orgot
+
+commit 5f1dee21ff44883dd0d1a099bf316e09af8d7c16
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 10 18:09:16 2021 -0600
+
+    update readme with all steps
+
+commit 0317804d5ec0c7c7fcb43907d88092c04758f9f9
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 10 16:31:27 2021 -0600
+
+    run container script, to be run in container
+
+commit d896dc04b7d54cd8182b2a5616658a2a17ca8fa6
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 10 11:20:11 2021 -0600
+
+    clean non needed stuff
+
+commit e83b21626b0da2d78d379756cf6e87f8e4cf66ec
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 10 09:09:04 2021 -0600
+
+    update for docker hub
+
+commit 72a622ae38a879a29c2f8ba27d243d7b0df29c56
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 10 05:25:26 2021 -0600
+
+    test
+
+commit e21143dfaadb34371aa51c2b6c0e1a02cb9567ac
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Fri Apr 9 23:57:44 2021 -0600
+
+    fix
+
+commit 066641346460a8d5c506a9ff35d1260ad306ac6a
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Fri Apr 9 23:23:08 2021 -0600
+
+    update
+
+commit 923faa1ef52c59950d8c5c5fc516d36daf0059e8
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Fri Apr 9 20:23:22 2021 -0600
+
+    WORKING perfectl dockerfile
+
+commit 9b1c703a300265b5cfe6763509f8423b96dbc67b
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Fri Apr 9 19:51:20 2021 -0600
+
+    ye
+
+commit ff451788b639a56e749309ca1d662089785f154b
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Fri Apr 9 19:50:01 2021 -0600
+
+    code working with current master
+
+commit b204ddc5426d2dc9160e4066eda7f8c2bd0dfd2f
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Fri Apr 9 19:37:57 2021 -0600
+
+    add reqs
+
+commit b13c90f977a4396ddb55002b456a066622e9e3ed
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Fri Apr 9 17:36:33 2021 -0600
+
+    dockerfiel
+
+commit b62ca34bcc1ceb419096e3b7739467a1b0163352
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Fri Apr 9 12:07:11 2021 -0600
+
+    update readme
+
+commit 8f3bf4242e2e8d4f49802c8c99724b49629e1674
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Thu Apr 8 17:27:06 2021 -0600
+
+    dockerfile
+
+commit a4810f8811c235b8cf2800cef487664014279d77
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Thu Apr 8 16:22:00 2021 -0600
+
+    "simple" install script
+
+commit c313c2725010f8480633dc31851caf9bbe18ed6a
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Thu Apr 8 10:53:21 2021 -0600
+
+    compute dense reward
+
+commit 0ffc96fb70d45551c3d87e9e4ab83a1125b6846d
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Apr 7 11:42:38 2021 -0600
+
+    another bug
+
+commit 2b6c16e4034d72b19eec47780825ac59057c386f
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Apr 7 10:17:16 2021 -0600
+
+    fix first bugs in subgoal calculation
+
+commit 03b71af1b72daebaf81e47acfdb7d6b7fef11a72
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Tue Apr 6 22:14:47 2021 -0600
+
+    train minitaur hiro
+
+commit c2c2f6b935653f387b0abf9da26a068a2cff00ba
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Tue Apr 6 22:08:14 2021 -0600
+
+    adapt envs to work with hrl algorithms
+
+commit 33924edc4f1a8f6fba1fd5dbbdc26204fa19b127
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Tue Apr 6 19:16:33 2021 -0600
+
+    working code for panda env
+
+commit a4ff4ace7b4bbb566ca9812bf3d3d2d52c7553e6
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sun Apr 4 23:55:35 2021 -0600
+
+    update the readme with the changes
+
+commit 966787c0e7f794b27f7e624836904ec7659f6bb0
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sun Apr 4 23:42:36 2021 -0600
+
+    install script
+
+commit 83175ab30df90f23e3edae4fa2eb1ea5ac75d230
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 3 14:11:39 2021 -0600
+
+    improve steps on readme
+
+commit 754d449231443bae7697c34e526f484c5e8c6e03
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 3 13:52:37 2021 -0600
+
+    nits
+
+commit ea7b3e42cdb6522e6b13d6d0ef763ee1b27094ed
+Merge: 8ae7ace a380586
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 3 13:49:11 2021 -0600
+
+    Merge branch 'main' of https://github.com/peasant98/shiro-corl-2021 into main
+
+commit 8ae7ace1dd338a8247bd4e80d9d180ba12b421ea
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Apr 3 13:48:59 2021 -0600
+
+    update gitignore
+
+commit a38058621de2a77d6777cc164b10398995eb1962
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Thu Mar 25 12:43:54 2021 -0600
+
+    delete torch from requirements.txt
+
+commit 0c2af0fb1b8576a2937f79419b2cbc2cf88863e5
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Thu Mar 25 12:04:56 2021 -0600
+
+    add note
+
+commit e63cf36eabd26327fa1b39221eb616510630b1a3
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Thu Mar 25 12:03:51 2021 -0600
+
+    add steps for pfrl installation
+
+commit 7ae76ba253647b8807f8a29fd4eaaf6cd24c6a87
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 14:10:18 2021 -0600
+
+    typo
+
+commit 56cb40e54e2cf3b2628443953736f61e8794356a
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 14:09:50 2021 -0600
+
+    panda
+
+commit 96af00d064615bb378044ba54a045740f47b0248
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 14:00:07 2021 -0600
+
+    bug
+
+commit 955b4edd60525ee367ed530b71312dbf0aa03b55
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 12:57:16 2021 -0600
+
+    formatting
+
+commit 68f09fd5da6e4e67da39536b8e18bf97055786ca
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 12:56:49 2021 -0600
+
+    add pics
+
+commit 334f93fbeff591b9f86857db648543aef3d3b71b
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 12:56:07 2021 -0600
+
+    quick test
+
+commit 74d2e8e0ac262e0d211752e6b6fed739b0816390
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 12:39:12 2021 -0600
+
+    all examples working
+
+commit 5565080f384de8519f583a5be536cabd7f32c473
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 11:13:57 2021 -0600
+
+    bugs in imports
+
+commit 2f56f891022f6b58d14499edc5b58f70df86fab6
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 11:04:27 2021 -0600
+
+    update barebones code
+
+commit 53b29113627c7def6ce1ec8cec644e586688f9bf
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 11:02:46 2021 -0600
+
+    add bit more
+
+commit 91292f620f055f9a909a4bf6c739a7af2fbf304e
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 11:01:37 2021 -0600
+
+    brief installation instructions
+
+commit 7823e85a0a5474a2f86b099d9044218cdb883b52
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Wed Mar 24 10:19:10 2021 -0600
+
+    updates
+
+commit 3aeb1ad7d4f9071905005c787252b7a5fda7bd99
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Mar 20 18:07:46 2021 -0600
+
+    barebones code
+
+commit 0f302809381b26f368f98bae3dc85dfdc6631337
+Author: Matthew Strong <mast4878@colorado.edu>
+Date:   Sat Mar 20 10:35:48 2021 -0600
+
+    setup.py done
+
+commit 365161259b15954336e00e06613c0489f9e7a2dd
+Author: Matthew Strong <32246357+peasant98@users.noreply.github.com>
+Date:   Fri Mar 19 19:40:23 2021 -0600
+
+    Update README.md
+
+commit ba4bf226f0f6b811c40fa920853115ff8b1ca9be
+Author: Matthew Strong <32246357+peasant98@users.noreply.github.com>
+Date:   Thu Mar 18 14:12:26 2021 -0600
+
+    Update README.md
+
+commit 37f75aa03bf914388495817741d980d48c012c55
+Author: Matthew Strong <32246357+peasant98@users.noreply.github.com>
+Date:   Thu Mar 18 14:09:36 2021 -0600
+
+    Initial commit

@@ -1,0 +1,1 @@
+{"outdir": "results", "seed": 0, "gpu": 0, "demo": false, "load": null, "final_exploration_steps": 500000, "final_epsilon": 0.2, "steps": 16000000, "eval_n_runs": 100, "log_level": 20, "record": false, "render": false, "add_entropy_layer": "None", "num_envs": 1}

@@ -1,0 +1,20 @@
+diff --git a/sample_supercomputer_job.sh b/sample_supercomputer_job.sh
+index 1cde536..e380c96 100644
+--- a/sample_supercomputer_job.sh
++++ b/sample_supercomputer_job.sh
+@@ -2,7 +2,7 @@
+ 
+ #SBATCH --nodes=1
+ #SBATCH --ntasks=1
+-#SBATCH --time=10:00:00
++#SBATCH --time=23:59:59
+ #SBATCH --partition=sgpu      
+ #SBATCH --qos=normal
+ #SBATCH --output=sample-%j.out
+@@ -10,4 +10,4 @@
+ module load singularity/3.6.4
+ 
+ # the below line is an example
+-singularity exec --nv --bind /projects/mast4878/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container_supercomputer.sh
+\ No newline at end of file
++singularity exec --nv --bind /projects/mast4878/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container_supercomputer.sh

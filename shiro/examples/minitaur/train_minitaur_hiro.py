@@ -1,10 +1,10 @@
 """
 Training:
-    python3 shiro/examples/panda/train_panda_hiro.py
+    python3 shiro/examples/minitaur/train_minitaur_hiro.py
 Render Trained:
-    python3 shiro/examples/panda/train_panda_hiro.pyy --render --demo --load <dir>
+    python3 shiro/examples/minitaur/train_minitaur_hiro.py --render --demo --load <dir>
 Example:
-    python3 shiro/examples/panda/train_panda_hiro.py --render --demo --load results/6900d36edd696e65e1d2ae72dd58796a2d7c19ef-34c626fd-4418a6b0/best
+    python3 shiro/examples/minitaur/train_minitaur_hiro.py --render --demo --load results/6900d36edd696e65e1d2ae72dd58796a2d7c19ef-34c626fd-4418a6b0/best
 """
 import argparse
 import functools
@@ -15,7 +15,7 @@ import torch
 
 # from hiro_robot_envs.envs import create_maze_env, AntEnvWithGoal
 
-from shiro.envs import ShiroPandaPushGymGoalEnv
+from shiro.envs import ShiroMinitaurBallGymEnv
 
 import pfrl
 from pfrl import utils
@@ -66,6 +66,12 @@ def parse_rl_args():
         help="Final value of epsilon during training.",
     )
     parser.add_argument(
+        "--add-entropy",
+        type=bool,
+        default=False,
+        help="Whether or not to add entropy.",
+    )
+    parser.add_argument(
         "--steps",
         type=int,
         default=16 * 10 ** 6,
@@ -89,23 +95,12 @@ def parse_rl_args():
         default=False,
         help="Record videos of evaluation envs. --render should also be specified.",
     )
+
     parser.add_argument(
         "--render",
         action="store_true",
         default=False,
         help="Render env states in a GUI window.",
-    )
-    parser.add_argument(
-        "--add-entropy-layer",
-        type=str,
-        default='bottom',
-        help="Choose which layer to add entropy (top, bottom, both, or None)",
-    )
-    parser.add_argument(
-        "--temperature",
-        type=float,
-        default=0.1,
-        help="Choose what temperature to use, if any sort of entropy is enabled.",
     )
     parser.add_argument("--num-envs", type=int, default=1, help="Number of envs run in parallel.")
     args = parser.parse_args()
@@ -130,15 +125,16 @@ def main():
     args.outdir = experiments.prepare_output_dir(args, args.outdir)
     print("Output files are saved in {}".format(args.outdir))
 
-    def make_panda_env(idx, test):
+
+    def make_minitaur_env(idx, test):
 
         # use different seeds for train vs test envs
         process_seed = int(process_seeds[idx])
-        # env_seed = 2 ** 32 - 1 - process_seed if test else process_seed
-        env_seed = np.random.randint(0, 2**32 - 1) if not test else process_seed
+        env_seed = 2 ** 32 - 1 - process_seed if test else process_seed
+        # env_seed = np.random.randint(0, 2**32 - 1) if not test else process_seed
         utils.set_random_seed(env_seed)
         # create the panda env
-        env = ShiroPandaPushGymGoalEnv(use_IK=True, renders=args.render)
+        env = ShiroMinitaurBallGymEnv(renders=args.render)
         env.seed(int(env_seed))
 
         if args.render:
@@ -146,12 +142,12 @@ def main():
 
         return env
 
-    def make_batch_panda_env(test):
+    def make_batch_minitaur_env(test):
         return pfrl.envs.MultiprocessVectorEnv(
-            [functools.partial(make_panda_env, idx, test) for idx in range(args.num_envs)]
+            [functools.partial(make_minitaur_env, idx, test) for idx in range(args.num_envs)]
         )
 
-    eval_env = make_panda_env(0, test=True)
+    eval_env = make_minitaur_env(0, test=True)
     env_state_dim = eval_env.observation_space['observation'].shape[0]
     env_action_dim = eval_env.action_space.shape[0]
     # subgoal dim is user-chosen
@@ -162,9 +158,7 @@ def main():
     action_space = eval_env.action_space
 
     scale_low = action_space.high * np.ones(env_action_dim)
-
-    # scale_high = obs_space.high[:env_subgoal_dim] * np.ones(env_subgoal_dim)
-    scale_high = np.ones(env_subgoal_dim)
+    scale_high = obs_space.high[:env_subgoal_dim] * np.ones(env_subgoal_dim)
 
     def low_level_burnin_action_func():
         """Select random actions until model is updated one or more times."""
@@ -172,10 +166,9 @@ def main():
 
     def high_level_burnin_action_func():
         """Select random actions until model is updated one or more times."""
-        return np.random.uniform(scale_high * -1, scale_high).astype(np.float32)
+        return np.random.uniform(obs_space.low[:env_subgoal_dim], obs_space.high[:env_subgoal_dim]).astype(np.float32)
 
     gpu = 0 if torch.cuda.is_available() else None
-
     agent = HIROAgent(state_dim=env_state_dim,
                       action_dim=env_action_dim,
                       goal_dim=env_goal_dim,
@@ -188,10 +181,9 @@ def main():
                       subgoal_freq=10,
                       train_freq=10,
                       reward_scaling=0.1,
-                      goal_threshold=0.1,
+                      goal_threshold=5,
                       gpu=gpu,
-                      add_entropy_layer=args.add_entropy_layer,
-                      temperature=args.temperature)
+                      add_entropy=args.add_entropy)
 
     if args.load:
         # load weights from a file if arg supplied
@@ -219,12 +211,12 @@ def main():
 
         experiments.train_hrl_agent_with_evaluation(
             agent=agent,
-            env=make_panda_env(0, test=False),
+            env=make_minitaur_env(0, test=False),
             steps=args.steps,
             outdir=args.outdir,
             eval_n_steps=None,
             eval_interval=5000,
-            eval_n_episodes=5,
+            eval_n_episodes=10,
             use_tensorboard=True,
             record=args.record
         )
