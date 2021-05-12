@@ -101,11 +101,38 @@ def parse_rl_args():
         default='bottom',
         help="Choose which layer to add entropy (top, bottom, both, or None)",
     )
+
     parser.add_argument(
-        "--temperature",
+        "--temperature-high",
+        type=float,
+        default=2.0,
+        help="Choose which temperature to use for the entropy term",
+    )
+    parser.add_argument(
+        "--temperature-low",
         type=float,
         default=0.1,
-        help="Choose what temperature to use, if any sort of entropy is enabled.",
+        help="Choose which temperature to use for the entropy term",
+    )
+
+    parser.add_argument(
+        "--optimize-high-temp",
+        action="store_true",
+        default=False,
+        help="Choose whether or not to optimize the temperature on the high level policy",
+    )
+    parser.add_argument(
+        "--optimize-low-temp",
+        action="store_true",
+        default=False,
+        help="Choose whether or not to optimize the temperature on the low level policy",
+    )
+
+    parser.add_argument(
+        "--soft-subgoal-update",
+        type=float,
+        default=1.0,
+        help="Whether to soft-update the subgoal locations. 1 for no soft update, 0.95 to use 95 perc. of current state",
     )
     parser.add_argument("--num-envs", type=int, default=1, help="Number of envs run in parallel.")
     args = parser.parse_args()
@@ -134,8 +161,8 @@ def main():
 
         # use different seeds for train vs test envs
         process_seed = int(process_seeds[idx])
-        # env_seed = 2 ** 32 - 1 - process_seed if test else process_seed
-        env_seed = np.random.randint(0, 2**32 - 1) if not test else process_seed
+        env_seed = 2 ** 32 - 1 - process_seed if test else process_seed
+        # env_seed = np.random.randint(0, 2**32 - 1) if not test else process_seed
         utils.set_random_seed(env_seed)
         # create the panda env
         env = ShiroPandaPushGymGoalEnv(use_IK=True, renders=args.render)
@@ -191,7 +218,11 @@ def main():
                       goal_threshold=0.1,
                       gpu=gpu,
                       add_entropy_layer=args.add_entropy_layer,
-                      temperature=args.temperature)
+                      soft_subgoal_update=args.soft_subgoal_update,
+                      temperature_high=args.temperature_high,
+                      temperature_low=args.temperature_low,
+                      optimize_high_temp=args.optimize_high_temp,
+                      optimize_low_temp=args.optimize_low_temp)
 
     if args.load:
         # load weights from a file if arg supplied
