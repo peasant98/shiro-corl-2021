@@ -1,0 +1,1 @@
+/shiro-corl-2021/shiro/examples/panda/train_panda_hiro.py --add-entropy-layer top --optimize-high-temp --temperature-high 1.0

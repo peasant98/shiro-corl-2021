@@ -1,0 +1,31 @@
+diff --git a/run_container_supercomputer.sh b/run_container_supercomputer.sh
+index a380df6..74042d9 100644
+--- a/run_container_supercomputer.sh
++++ b/run_container_supercomputer.sh
+@@ -3,4 +3,4 @@
+ export PYTHONPATH="/usr/local/lib/python3.6/dist-packages:${PYTHONPATH}"
+ 
+ cd /shiro-corl-2021/shiro/examples/panda
+-python3 /shiro-corl-2021/shiro/examples/panda/train_panda_hiro.py
+\ No newline at end of file
++python3 /shiro-corl-2021/shiro/examples/panda/train_panda_hiro.py --add-entropy-layer top --optimize-high-temp --temperature-high 1.0
+diff --git a/sample_job_cpu.sh b/sample_job_cpu.sh
+index e75d5d0..47a8ae8 100644
+--- a/sample_job_cpu.sh
++++ b/sample_job_cpu.sh
+@@ -1,7 +1,7 @@
+ #!/bin/bash
+ #SBATCH --nodes=1
+ #SBATCH --ntasks=6
+-#SBATCH --time=03-23
++#SBATCH --time=06-23
+ #SBATCH --partition=shas      
+ #SBATCH --qos=long
+ #SBATCH --output=sample-%j.out
+@@ -9,4 +9,4 @@
+ module load singularity/3.6.4
+ 
+ # the below line is an example
+-singularity exec --bind /projects/mast4878/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container_supercomputer.sh
+\ No newline at end of file
++singularity exec --bind /projects/mast4878/shiro_experiments/hiro_hl_learned_temp_1/shiro-corl-2021:/shiro-corl-2021 shiro.simg bash /shiro-corl-2021/run_container_supercomputer.sh
